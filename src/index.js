@@ -7,25 +7,22 @@ module.exports = function makeExchange(currency) {
 	if ( currency > 10000 ) return errorMessageObj;
 	if ( currency == 0 || currency < 0  ) return res;
 
-	let money = currency;
-
 	let halfDollars = 50,
 		quarters = 25,
 		dimes = 10,
 		nickels = 5,
 		pennie = 1;
 
-
-
 	function exchange(cur, slag)
 	{
-		if ( (money != 0) && ( (money % cur) != money ) )
+		if ( currency != 0 )
 		{
-			var x = money % cur;
+			var x = currency % cur;
 	
-			if ( x != money ) {
-				res[slag] = ( ( money - x) / cur );
-				money = x;
+			if ( x != currency ) 
+			{
+				res[slag] = ( ( currency - x) / cur );
+				currency = x;
 			}
 		}
 	}
